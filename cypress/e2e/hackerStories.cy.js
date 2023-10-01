@@ -36,7 +36,7 @@ describe('Hacker Stories', () => {
       cy.get('.item').should('have.length', 40)
     })
 
-    it.only('searches via the last searched term', () => {
+    it('searches via the last searched term', () => {
       cy.intercept(
         'GET', `**/search?query=${newTerm}&page=0`
       ).as('getNewTermStories')
@@ -242,6 +242,9 @@ describe('Hacker Stories', () => {
 
         cy.wait('@getStories')
 
+        cy.getLocalStorage('search')
+        .should('be.equal', newTerm)
+
         cy.get('.item').should('have.length', 2)
         cy.get(`button:contains(${initialTerm})`)
           .should('be.visible')
@@ -257,6 +260,9 @@ describe('Hacker Stories', () => {
 
         cy.wait('@getStories')
 
+        cy.getLocalStorage('search')
+        .should('be.equal', newTerm)
+
         cy.get('.item').should('have.length', 2)
         cy.get(`button:contains(${initialTerm})`)
           .should('be.visible')
@@ -271,10 +277,13 @@ describe('Hacker Stories', () => {
           ).as('getRandomStories')
 
           Cypress._.times(6, () => {
+            const randomWord = faker.random.word()
             cy.get('#search')
               .clear()
-              .type(`${faker.random.word()}{enter}`)
+              .type(`${randomWord}{enter}`)
             cy.wait('@getRandomStories')
+            cy.getLocalStorage('search')
+              .should('be.equal', randomWord)
           })
 
           cy.get('.last-searches')
@@ -314,4 +323,23 @@ context('Errors', () => {
 
     cy.get('p:contains(Something went wrong ...)')
   })
+})
+
+it('shows a "Loading ..." state before showing the results', () => {
+  cy.intercept(
+    'GET',
+    '**/search**',
+    {
+      delay: 1000,
+      fixture: 'stories'
+    }
+  ).as('getDelayStories')
+
+  cy.visit('/')
+
+  cy.assertLoadingIsShownAndHidden()
+  cy.wait('@getDelayStories')
+
+  cy.get('.item')
+    .should('have.length', 2)
 })
