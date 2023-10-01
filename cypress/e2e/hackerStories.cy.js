@@ -143,7 +143,7 @@ describe('Hacker Stories', () => {
           .should('be.visible')
       })
 
-      it.only('shows a max of 5 buttons for the last searched terms', () => {
+      it('shows a max of 5 buttons for the last searched terms', () => {
         const faker = require('faker')
         cy.intercept(
           'GET', '**/search**'
