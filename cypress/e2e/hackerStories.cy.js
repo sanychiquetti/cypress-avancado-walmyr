@@ -58,7 +58,7 @@ describe('Hacker Stories', () => {
       cy.wait('@getStories')
 
       cy.getLocalStorage('search')
-      .should('be.equal', initialTerm)
+        .should('be.equal', initialTerm)
 
       cy.get('.item').should('have.length', 20)
       cy.get('.item')
@@ -243,7 +243,7 @@ describe('Hacker Stories', () => {
         cy.wait('@getStories')
 
         cy.getLocalStorage('search')
-        .should('be.equal', newTerm)
+          .should('be.equal', newTerm)
 
         cy.get('.item').should('have.length', 2)
         cy.get(`button:contains(${initialTerm})`)
@@ -261,7 +261,7 @@ describe('Hacker Stories', () => {
         cy.wait('@getStories')
 
         cy.getLocalStorage('search')
-        .should('be.equal', newTerm)
+          .should('be.equal', newTerm)
 
         cy.get('.item').should('have.length', 2)
         cy.get(`button:contains(${initialTerm})`)

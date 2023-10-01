@@ -1,12 +1,15 @@
 # Testes Automatizados com Cypress - Avançado
 
-👋 Seja bem vindo(a)!
 
-É muito bom tê-lo(a) aqui. Tenho certeza que você vai adorar este curso. ❤️
+👋 Hello bem vindo(a) ao meu repositório de testes com Cypress! ❤️
 
-## O que você vai aprender
+<div>
+  <a><img src="./cypress/images/testesHeadless.jpg" alt="Imagem dos testes em headless"></a>
+</div>
 
-Durante o curso avançado de Cypress, você vai aprender:
+### Nesse curso aprendi muitos comandos que eu não conhecia, e como deixar meus testes mais robustos, e é claro já o fiz com a versão mais recente do cypress que no momento é a versão `13.3`.
+
+### Veja o que aprendi:
 
 - Como criar testes 100% _flakiness-free_
 - Como interagir com a aplicação o mais próximo de como um usuário real faria
@@ -22,10 +25,10 @@ Durante o curso avançado de Cypress, você vai aprender:
 - Como simular lentidão na chamada à uma API
 - Como modificar o relatório de testes padrão para um que combine com o seu estilo 😉
 
-## Vamos começar?
+## Se deseja baixar meu código e ver os testes passando, segue as dependências que vai precisar baixar:
 
-Vá para a seção de [pré-requisitos](./lessons/0.md).
+Vá para a seção de [pré-requisitos](./cypress/images/preRequisitos.md).
 
 ___
 
-Um curso da [**Escola Talking About Testing**](https://udemy.com/user/walmyr).
+Esse foi mais um curso que fiz do embaixador do cypress `Walmyr Filho` da [**Escola Talking About Testing**](https://udemy.com/user/walmyr).
